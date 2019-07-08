@@ -27,15 +27,15 @@ from bot.states import (
 
 async def on_startup(dp: Dispatcher):
     # handle commands 
-    #   register_message_handler
-    #   register_edited_message_handler
+    #   register_message_handler(c.func, commands=['cmd'])
+    dp.register_message_handler(c.start, commands=['start'])
+    dp.register_message_handler(c.cancel, commands=['cancel'], state='*')
     dp.register_message_handler(c.getid, commands=['id'])
     dp.register_message_handler(c.keyboard, commands=['kb'])
     dp.register_message_handler(c.lang, commands=['lang'])
     dp.register_message_handler(c.pagination, commands=['pages'])
-    dp.register_message_handler(c.start, commands=['start'])
-    dp.register_message_handler(c.cancel, commands=['cancel'], state='*')
-    
+    dp.register_message_handler(c.form, commands=['form'])
+
     # errors
     #   register_errors_handler
     
@@ -44,7 +44,13 @@ async def on_startup(dp: Dispatcher):
     #   register_chosen_inline_handler
 
     # handle messages
-    dp.register_message_handler(m.hello)
+    #   register_message_handler
+    #   register_edited_message_handler
+    # dp.register_message_handler(m.hello)
+    dp.register_message_handler(m.process_name, state=ExampleState.name)
+    dp.register_message_handler(m.failed_process_age, lambda msg: not msg.text.isdigit(), state=ExampleState.age)
+    dp.register_message_handler(m.process_age, lambda msg: msg.text.isdigit(), state=ExampleState.age)
+    dp.register_message_handler(m.process_gender, state=ExampleState.gender)
 
     # posts
     #   register_channel_post_handler
