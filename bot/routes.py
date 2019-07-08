@@ -21,7 +21,9 @@ from bot.utils import (
     example_cd,
     pagination_cd,
 )
-
+from bot.states import (
+    ExampleState
+)
 
 async def on_startup(dp: Dispatcher):
     # handle commands 
@@ -32,6 +34,7 @@ async def on_startup(dp: Dispatcher):
     dp.register_message_handler(c.lang, commands=['lang'])
     dp.register_message_handler(c.pagination, commands=['pages'])
     dp.register_message_handler(c.start, commands=['start'])
+    dp.register_message_handler(c.cancel, commands=['cancel'], state='*')
     
     # errors
     #   register_errors_handler
