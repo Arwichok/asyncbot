@@ -20,6 +20,7 @@ from bot.handlers import (
 from bot.utils import (
     example_cd,
     pagination_cd,
+    choise_lang_cd,
 )
 from bot.states import (
     ExampleState
@@ -63,7 +64,7 @@ async def on_startup(dp: Dispatcher):
     lcq = lambda callback_query: True
     dp.register_callback_query_handler(q.pagination, pagination_cd.filter())
     dp.register_callback_query_handler(q.example, example_cd.filter())
-    
+    dp.register_callback_query_handler(q.choose_lang, choise_lang_cd.filter())
     # schedulers
     #   scheduler.add_job
 

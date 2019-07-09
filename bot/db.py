@@ -1,3 +1,4 @@
+from aiogram import Dispatcher
 import sqlalchemy as sa
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -17,8 +18,8 @@ class Base(declarative_base()):
         return session.query(cls).filter(whereclause).first()
         
 
-async def on_startup(dp):
+async def on_startup(dp: Dispatcher):
     Base.metadata.create_all(engine)
 
-async def on_shutdown(dp):
+async def on_shutdown(dp: Dispatcher):
     session.close()

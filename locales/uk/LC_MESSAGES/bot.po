@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-05 03:52+0300\n"
+"POT-Creation-Date: 2019-07-09 10:26+0300\n"
 "PO-Revision-Date: 2019-07-05 03:39+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uk\n"
@@ -19,22 +19,53 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: bot/handlers/commands.py:23
+#: bot/keyboards.py:43
+msgid "Male"
+msgstr ""
+
+#: bot/keyboards.py:43
+msgid "Female"
+msgstr ""
+
+#: bot/handlers/commands.py:33
 msgid "Commands:"
 msgstr "Команди:"
 
-#: bot/handlers/commands.py:28
-msgid "Your current lang: {lang}"
-msgstr "Ваша поточна мова: {lang}"
+#: bot/handlers/commands.py:41 bot/handlers/queries.py:41
+msgid "Choose language"
+msgstr "Виберіть мову"
 
-#: bot/handlers/commands.py:31
+#: bot/handlers/commands.py:45
 msgid "Your id: {id}"
 msgstr "Ваш id: {id}"
 
-#: bot/handlers/commands.py:34
+#: bot/handlers/commands.py:49
 msgid "Keyboard example"
 msgstr ""
 
-#: bot/handlers/messages.py:13
+#: bot/handlers/commands.py:66
+msgid "Hi! What's your name?"
+msgstr ""
+
+#: bot/handlers/messages.py:22
 msgid "Hello"
 msgstr "Привіт"
+
+#: bot/handlers/messages.py:30
+msgid "How old are you?"
+msgstr ""
+
+#: bot/handlers/messages.py:34
+msgid "Age gotta be a number! How old are you? (digits only)"
+msgstr ""
+
+#: bot/handlers/messages.py:48
+msgid ""
+"Hi! Nice to meet you {name}\n"
+"Age: {age}\n"
+"Gender: {gender}"
+msgstr ""
+
+#~ msgid "Your current lang: {lang}"
+#~ msgstr "Ваша поточна мова: {lang}"
+

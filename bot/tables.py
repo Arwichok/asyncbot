@@ -28,6 +28,6 @@ class User(Base):
         return is_new, user
 
 
-    async def set_language(self, language):
+    async def set_language(self, language: str):
         self.locale = language
         session.commit()

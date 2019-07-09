@@ -19,6 +19,7 @@ from bot.config import (
 from bot.keyboards import (
     example_inline,
     pagination_inline,
+    choose_lang_inline,
 )
 from bot.models import get_page_text
 from bot.states import ExampleState
@@ -34,8 +35,8 @@ async def start(msg: types.Message):
     await msg.answer(text+commands)
 
 
-async def lang(msg: types.Message, locale):
-    await msg.answer(_('Your current lang: {lang}').format(lang=locale))
+async def lang(msg: types.Message, locale: str):
+    await msg.answer(_("Choose language"), reply_markup=choose_lang_inline(locale))
 
 
 async def getid(msg: types.Message):
