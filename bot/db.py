@@ -12,6 +12,10 @@ session = sessionmaker(bind=engine)()
 class Base(declarative_base()):
     __abstract__ = True
 
+    @classmethod
+    async def get(cls, whereclause):
+        return session.query(cls).filter(whereclause).first()
+        
 
 async def on_startup(dp):
     Base.metadata.create_all(engine)

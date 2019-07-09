@@ -23,6 +23,7 @@ from bot.keyboards import (
 from bot.models import get_page_text
 from bot.states import ExampleState
 
+from bot.tables import User
 
 _ = i18n.gettext
 
