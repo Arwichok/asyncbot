@@ -31,11 +31,14 @@ words_list = [
     '16. Letters',
 ]
 
+
 def get_page_text(page=0, count=5):
-    start = page*count
-    end = start+count
+    start = page * count
+    end = start + count
     words = words_list[start:end]
-    last_page = math.floor(len(words_list)/count)
+    last_page = math.floor(len(words_list) / count)
     text = "<b>List {}/{}:</b>\n<code>{}</code>".format(
-            page+1, last_page+1, '\n'.join(words))
+        page + 1,
+        last_page + 1,
+        '\n'.join(words))
     return (text, last_page)

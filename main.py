@@ -10,7 +10,7 @@ from bot.config import (
     WEBHOOK_SERVER,
 )
 from bot import (
-    db, 
+    db,
     middlewares,
     routes,
     filters,
@@ -24,14 +24,18 @@ async def on_startup(dp: Dispatcher):
     await routes.on_startup(dp)
     scheduler.start()
 
+
 async def on_startup_polling(dp: Dispatcher):
     await dp.bot.delete_webhook()
+
 
 async def on_startup_webhook(dp: Dispatcher):
     await dp.bot.set_webhook(WEBHOOK_URL)
 
+
 async def on_shutdown(dp: Dispatcher):
     await db.on_shutdown(dp)
+
 
 async def on_shutdown_webhook(dp: Dispatcher):
     await dp.bot.delete_webhook()

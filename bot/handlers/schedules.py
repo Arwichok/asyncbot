@@ -1,5 +1,3 @@
-from aiogram import Dispatcher
-
 from bot.misc import bot
 from bot.config import OWNER_ID
 

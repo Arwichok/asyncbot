@@ -1,7 +1,5 @@
-import asyncio
 import logging
 
-from aiogram import types
 from aiogram.types import (
     CallbackQuery
 )
@@ -27,8 +25,8 @@ async def pagination(cq: CallbackQuery, callback_data: dict):
     page = int(page) if page.isdigit() else 0
     text, last = get_page_text(page)
     await cq.answer()
-    await cq.message.edit_text(text, 
-        reply_markup=pagination_inline(page, last))
+    await cq.message.edit_text(
+        text, reply_markup=pagination_inline(page, last))
 
 
 async def example(cq: CallbackQuery):
@@ -42,5 +40,5 @@ async def choose_lang(cq: CallbackQuery, callback_data: dict, user: User):
     if user.locale != lang:
         await user.set_language(lang)
         await cq.message.edit_text(
-            _("Choose language", locale=lang), 
+            _("Choose language", locale=lang),
             reply_markup=choose_lang_inline(lang))

@@ -18,7 +18,7 @@ WEBHOOK_HOST = 'example.com'
 WEBHOOK_PATH = '/webhook'
 
 # Database
-DB_URL = "sqlite:///db.sqlite3" # db.sqlite3
+DB_URL = "sqlite:///db.sqlite3"   # db.sqlite3
 
 # Init config
 fastconf.config(__name__, 'yml')

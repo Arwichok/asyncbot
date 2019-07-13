@@ -5,7 +5,7 @@ Project structure for aiogram bot
 
 ### Before run
     pip install -r requirements.txt
-    python run.py   # generate config file
+    python main.py   # generate config file
 
 #### Edit config file
 
@@ -14,7 +14,7 @@ Project structure for aiogram bot
 ``` 
 
 ### Run bot
-    python run.py
+    python main.py
 
 
 Me on Telegram [@Arwichok](https://t.me/arwichok)

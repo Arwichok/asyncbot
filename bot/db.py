@@ -16,10 +16,11 @@ class Base(declarative_base()):
     @classmethod
     async def get(cls, whereclause):
         return session.query(cls).filter(whereclause).first()
-        
+
 
 async def on_startup(dp: Dispatcher):
     Base.metadata.create_all(engine)
+
 
 async def on_shutdown(dp: Dispatcher):
     session.close()
