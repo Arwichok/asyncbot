@@ -6,13 +6,12 @@ from aiogram.utils.markdown import (
     hbold,
 )
 
-from bot.misc import i18n
-from bot.states import ExampleState
 from bot.keyboards import example_reply
+from bot.middlewares import _
+from bot.states import ExampleState
 
 
 log = logging.getLogger(__name__)
-_ = i18n.gettext
 
 
 async def hello(msg, hell=None):

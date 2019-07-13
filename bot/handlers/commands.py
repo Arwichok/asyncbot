@@ -4,9 +4,7 @@ from aiogram.utils.markdown import (
     hcode
 )
 
-from bot.misc import (
-    i18n,
-)
+from bot.middlewares import _
 from bot.keyboards import (
     example_inline,
     pagination_inline,
@@ -14,9 +12,6 @@ from bot.keyboards import (
 )
 from bot.models import get_page_text
 from bot.states import ExampleState
-
-
-_ = i18n.gettext
 
 
 async def start(msg: types.Message):

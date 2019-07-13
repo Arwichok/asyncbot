@@ -3,20 +3,17 @@ import logging
 from aiogram.types import (
     CallbackQuery
 )
-from bot.utils import (
-    pagination_cd
-)
 from bot.models import (
     get_page_text
 )
-from bot.tables import User
+from bot.models import User
 from bot.keyboards import (
     pagination_inline,
     choose_lang_inline,
 )
-from bot.misc import i18n
+from bot.middlewares import _
 
-_ = i18n.gettext
+
 log = logging.getLogger(__name__)
 
 

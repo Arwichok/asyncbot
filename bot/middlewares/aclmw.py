@@ -4,7 +4,7 @@ from typing import Any, Tuple
 from aiogram import types
 from aiogram.contrib.middlewares.i18n import I18nMiddleware
 
-from bot.tables import User
+from bot.models import User
 
 
 class ACLMiddleware(I18nMiddleware):

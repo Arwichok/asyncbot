@@ -4,15 +4,12 @@ from aiogram.types import (
     InlineKeyboardButton,
     ReplyKeyboardMarkup,
 )
-from bot.misc import i18n
+from bot.middlewares import _
 from bot.utils import (
     example_cd,
     pagination_cd,
     choise_lang_cd,
 )
-
-
-_ = i18n.gettext
 
 
 def example_inline():
@@ -45,7 +42,7 @@ def example_reply():
 
 def choose_lang_inline(lang: str):
     kb = InlineKeyboardMarkup()
-    for i in i18n.available_locales:
+    for i in _.available_locales:
         label = Locale(i).display_name.capitalize()
         kb.add(
             InlineKeyboardButton(
