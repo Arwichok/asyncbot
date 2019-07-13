@@ -43,6 +43,7 @@ async def on_startup(dp: Dispatcher):
     # inlines
     #   register_inline_handler
     #   register_chosen_inline_handler
+    dp.register_inline_handler(i.example_echo)
 
     # handle messages
     #   register_message_handler
