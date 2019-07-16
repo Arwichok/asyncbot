@@ -12,16 +12,15 @@ from bot.config import (
 from bot import (
     db,
     middlewares,
-    routes,
     filters,
 )
+from bot.handlers import *
 
 
 async def on_startup(dp: Dispatcher):
     await db.on_startup(dp)
     await filters.on_startup(dp)
     await middlewares.on_startup(dp)
-    await routes.on_startup(dp)
     scheduler.start()
 
 

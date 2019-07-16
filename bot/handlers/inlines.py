@@ -1,6 +1,9 @@
 from aiogram import types
 
+from bot.misc import dp
 
+
+@dp.inline_handler()
 async def example_echo(iq: types.InlineQuery):
     input_content = types.InputTextMessageContent(iq.query or 'content')
     item = types.InlineQueryResultArticle(
@@ -9,7 +12,9 @@ async def example_echo(iq: types.InlineQuery):
         description="description text",
         thumb_url="https://i.imgur.com/tF3g1JA.jpg",
         thumb_width=16,
-        input_message_content=input_content,
+        hide_url=True,
+        url='https://t.me/isgoi',
+        input_message_content=input_content
     )
 
     item2 = types.InlineQueryResultPhoto(
@@ -25,4 +30,7 @@ async def example_echo(iq: types.InlineQuery):
         # input_message_content=input_content2
     )
 
-    await iq.answer(results=[item, item2], cache_time=1)
+    # await iq.answer(results=[item, item2], cache_time=1)
+    await iq.answer(
+                    switch_pm_text='Some', 
+                    switch_pm_parameter='ss')

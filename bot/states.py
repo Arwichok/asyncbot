@@ -1,5 +1,6 @@
 from aiogram.dispatcher.filters.state import (
-    State, StatesGroup)
+    State, StatesGroup
+)
 
 
 class ExampleState(StatesGroup):
