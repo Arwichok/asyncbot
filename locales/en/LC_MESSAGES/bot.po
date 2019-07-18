@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-13 05:00+0300\n"
-"PO-Revision-Date: 2019-07-05 03:39+0300\n"
+"POT-Creation-Date: 2019-07-18 12:22+0300\n"
+"PO-Revision-Date: 2019-07-18 12:23+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
 "Language-Team: en <LL@li.org>\n"
@@ -18,68 +18,41 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: bot/keyboards.py:42
-msgid "Male"
+#: bot/keyboards.py:17
+msgid "Language"
 msgstr ""
 
-#: bot/keyboards.py:42
-msgid "Female"
+#: bot/handlers/commands.py:15
+msgid "Deep link {}"
 msgstr ""
 
-#: bot/handlers/commands.py:23
-msgid "Commands:"
+#: bot/handlers/commands.py:20
+msgid "Hello! I asyncbot."
 msgstr ""
 
-#: bot/handlers/commands.py:29 bot/handlers/queries.py:43
-msgid "Choose language"
+#: bot/handlers/commands.py:26 bot/handlers/queries.py:33
+msgid "Settings"
 msgstr ""
 
-#: bot/handlers/commands.py:34
-msgid "Your id: {id}"
+#: bot/handlers/commands.py:32
+msgid "Help"
 msgstr ""
 
-#: bot/handlers/commands.py:38
-msgid "Keyboard example"
+#: bot/handlers/commands.py:37
+msgid "Privacy"
 msgstr ""
 
-#: bot/handlers/commands.py:48
+#: bot/handlers/commands.py:42
+msgid ""
+"User id: {uid}\n"
+"Chat id: {cid}"
+msgstr ""
+
+#: bot/handlers/commands.py:50
 msgid "Canceled."
 msgstr ""
 
-#: bot/handlers/commands.py:53
-msgid "Hi! What's your name?"
+#: bot/handlers/queries.py:21
+msgid "Choose language"
 msgstr ""
-
-#: bot/handlers/messages.py:19
-msgid "Hello"
-msgstr ""
-
-#: bot/handlers/messages.py:26
-msgid "How old are you?"
-msgstr ""
-
-#: bot/handlers/messages.py:31
-msgid "Age gotta be a number! How old are you? (digits only)"
-msgstr ""
-
-#: bot/handlers/messages.py:39
-msgid "What is your gender? (choose or write)"
-msgstr ""
-
-#: bot/handlers/messages.py:46
-msgid ""
-"Hi! Nice to meet you {name}\n"
-"Age: {age}\n"
-"Gender: {gender}"
-msgstr ""
-
-#~ msgid ""
-#~ "Hello <b>{user}</b>!\n"
-#~ "Commands:\n"
-#~ " /lang\n"
-#~ " /id"
-#~ msgstr ""
-
-#~ msgid "Your current lang: {lang}"
-#~ msgstr ""
 

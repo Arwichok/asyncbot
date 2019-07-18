@@ -1,7 +1,6 @@
 from aiogram.utils.callback_data import CallbackData
 
 
-example_cd = CallbackData('example', 'value')
-pagination_cd = CallbackData('pagination', 'page')
-choise_lang_cd = CallbackData('clang', 'lang')
 reaction_cd = CallbackData('rctn', 'r')
+settings_cd = CallbackData('settings', 'set')
+lang_cd = CallbackData('lang', 'lang')

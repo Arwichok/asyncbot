@@ -2,52 +2,27 @@ from babel import Locale
 from aiogram.types import (
     InlineKeyboardMarkup,
     InlineKeyboardButton,
-    ReplyKeyboardMarkup,
 )
+
 from bot.middlewares import _
 from bot.utils import (
-    example_cd,
-    pagination_cd,
-    choise_lang_cd,
+    settings_cd,
+    lang_cd,
 )
 
 
-def example_inline():
-    markup = InlineKeyboardMarkup()
-    url = InlineKeyboardButton('URL', url="telegram.org")
-    cd = InlineKeyboardButton('CD', callback_data=example_cd.new('cd'))
-    siqcc = InlineKeyboardButton(
-        'Inline', switch_inline_query_current_chat='Data')
-    markup.add(cd, siqcc, url)
-    return markup
+def settings() -> InlineKeyboardMarkup:
+    kb = InlineKeyboardMarkup()
+    kb.add(InlineKeyboardButton(
+        _('Language'), callback_data=settings_cd.new('lang')))
+    return kb
 
 
-def pagination_inline(page: int=0, last: int=0):
-    if last <= 0:
-        return
-    back = page - 1 if page > 0 else last
-    forward = page + 1 if page < last else 0
-    b = InlineKeyboardButton(
-        '<', callback_data=pagination_cd.new(str(back)))
-    f = InlineKeyboardButton(
-        '>', callback_data=pagination_cd.new(str(forward)))
-    return InlineKeyboardMarkup().add(b, f)
-
-
-def example_reply():
-    markup = ReplyKeyboardMarkup(resize_keyboard=True, selective=True)
-    markup.add(_("Male"), _("Female"))
-    return markup
-
-
-def choose_lang_inline(lang: str):
+def lang(locale: str) -> InlineKeyboardMarkup:
     kb = InlineKeyboardMarkup()
     for i in _.available_locales:
         label = Locale(i).display_name.capitalize()
-        kb.add(
-            InlineKeyboardButton(
-                text=f">{label}<" if i == lang else label,
-                callback_data=choise_lang_cd.new(i)
-            )
-        )
+        kb.add(InlineKeyboardButton(
+            f"[{label}]" if i == locale else label,
+            callback_data=lang_cd.new(i)))
     return kb

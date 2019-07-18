@@ -1,14 +1,16 @@
+from dataclasses import dataclass
+
 from aiogram import types, Dispatcher
 from aiogram.dispatcher.filters import BoundFilter
 
 
-class TestFilter(BoundFilter):
-    def __init__(self, test):
-        self.test = test
+@dataclass
+class IsDigit(BoundFilter):
+    id_digit: bool
 
     async def check(self, msg: types.Message):
-        return self.test
+        return msg.text.is_digit()
 
 
 async def on_startup(dp: Dispatcher):
-    dp.filters_factory.bind(TestFilter)
+    dp.filters_factory.bind(IsDigit)

@@ -5,5 +5,4 @@ __all__ = [
     'messages',
     'posts',
     'queries',
-    'schedules'
 ]
