@@ -42,7 +42,7 @@ async def on_shutdown_webhook(dp: Dispatcher):
 
 def main():
     executor.on_startup(on_startup)
-    executor.on_startup(on_startup_polling)
+    executor.on_startup(on_startup_polling, webhook=0)
     executor.on_startup(on_startup_webhook, polling=0)
     executor.on_shutdown(on_shutdown)
     executor.on_shutdown(on_shutdown_webhook, polling=0)
