@@ -23,8 +23,7 @@ async def start(msg: types.Message):
 @dp.message_handler(commands=['settings'])
 async def settings(msg: types.Message):
     await msg.answer(
-        _("Settings"),
-        reply_markup=kb.settings())
+        _("Settings"), reply_markup=kb.settings())
 
 
 @dp.message_handler(commands=['help'])

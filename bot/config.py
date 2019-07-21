@@ -1,5 +1,7 @@
-import fastconf
 import os
+import sys
+
+import fastconf
 
 
 AUTHOR = 'Author'
@@ -21,7 +23,9 @@ WEBHOOK_PATH = '/webhook'
 DB_URL = "sqlite:///db.sqlite3"   # db.sqlite3
 
 # Init config
-fastconf.config(__name__, 'yml')
+fastconf.config(__name__)
+
+ROOT_DIR = os.path.dirname(os.path.abspath(sys.modules['__main__'].__file__))
 
 # Webhook
 WEBHOOK_URL = f'https://{WEBHOOK_HOST}{WEBHOOK_PATH}'
