@@ -8,7 +8,7 @@ from aiogram.utils.markdown import (
 
 from bot.misc import dp
 from bot.models import User, get_words
-from bot.middlewares import _
+from bot.middlewares.i18n import _
 import bot.keyboards as kb
 from bot.utils import (
     settings_cd,

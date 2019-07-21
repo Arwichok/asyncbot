@@ -1,16 +1,18 @@
 from dataclasses import dataclass
 
-from aiogram import types, Dispatcher
+from aiogram import types
 from aiogram.dispatcher.filters import BoundFilter
+
+from bot.misc import dp
 
 
 @dataclass
 class IsDigit(BoundFilter):
-    id_digit: bool
+    key = 'is_digit'
+    is_digit: bool
 
     async def check(self, msg: types.Message):
-        return msg.text.is_digit()
+        return msg.text.isdigit()
 
 
-async def on_startup(dp: Dispatcher):
-    dp.filters_factory.bind(IsDigit)
+dp.filters_factory.bind(IsDigit)

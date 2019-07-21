@@ -4,6 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 from bot.config import DB_URL
+from bot.misc import executor
 
 
 engine = sa.create_engine(DB_URL)
@@ -24,3 +25,7 @@ async def on_startup(dp: Dispatcher):
 
 async def on_shutdown(dp: Dispatcher):
     session.close()
+
+
+executor.on_startup(on_startup)
+executor.on_shutdown(on_shutdown)

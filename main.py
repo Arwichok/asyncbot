@@ -9,18 +9,12 @@ from bot.config import (
     USE_WEBHOOK,
     WEBHOOK_SERVER,
 )
-from bot import (
-    db,
-    middlewares,
-    filters,
-)
+from bot import db, filters
+from bot.middlewares import *
 from bot.handlers import *
 
 
 async def on_startup(dp: Dispatcher):
-    await db.on_startup(dp)
-    await filters.on_startup(dp)
-    await middlewares.on_startup(dp)
     scheduler.start()
 
 
@@ -33,7 +27,7 @@ async def on_startup_webhook(dp: Dispatcher):
 
 
 async def on_shutdown(dp: Dispatcher):
-    await db.on_shutdown(dp)
+    scheduler.shutdown()
 
 
 async def on_shutdown_webhook(dp: Dispatcher):

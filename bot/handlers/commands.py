@@ -5,7 +5,7 @@ from aiogram.utils.markdown import (
 )
 
 from bot.misc import dp
-from bot.middlewares import _
+from bot.middlewares.i18n import _
 import bot.keyboards as kb
 
 

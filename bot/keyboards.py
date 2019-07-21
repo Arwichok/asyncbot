@@ -4,7 +4,7 @@ from aiogram.types import (
     InlineKeyboardButton,
 )
 
-from bot.middlewares import _
+from bot.middlewares.i18n import _
 from bot.utils import (
     settings_cd,
     lang_cd,
