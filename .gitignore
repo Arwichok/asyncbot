@@ -125,5 +125,6 @@ dmypy.json
 
 # fastconf default files
 config.yml
-config.yaml
-config.json
+
+# VS Code
+.vscode/

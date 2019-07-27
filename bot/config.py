@@ -3,7 +3,6 @@ import sys
 
 import fastconf
 
-
 AUTHOR = 'Author'
 OWNER_ID = 0
 

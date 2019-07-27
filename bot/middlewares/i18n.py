@@ -3,12 +3,9 @@ from typing import Any, Tuple
 from aiogram import types
 from aiogram.contrib.middlewares.i18n import I18nMiddleware
 
+from bot.config import I18N_DOMAIN, LOCALES_DIR
 from bot.misc import dp
 from bot.models import User
-from bot.config import (
-    I18N_DOMAIN,
-    LOCALES_DIR,
-)
 
 
 class ACLMiddleware(I18nMiddleware):

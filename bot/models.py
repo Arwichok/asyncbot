@@ -3,8 +3,8 @@ import math
 
 from aiogram import types
 
-from bot.db import Base, sa, session
-
+from bot.db import Base, db_session, sa
+from bot.utils import aiowrap
 
 log = logging.getLogger(__name__)
 
@@ -15,25 +15,31 @@ class User(Base):
     locale = sa.Column(sa.String(length=2))
 
     @classmethod
-    async def get_user(cls, tg_user: types.User) -> (bool, 'User'):
-        user = await cls.get(cls.id == tg_user.id)
-        is_new = False
-        if user is None:
-            if tg_user.language_code:
-                locale = tg_user.language_code.split('-')[0]
-            else:
-                locale = 'en'
+    @aiowrap
+    def get_user(cls, tg_user: types.User) -> (bool, 'User'):
+        with db_session() as session:
+            user = cls.get(session, cls.id == tg_user.id)
+            is_new = False
+            if user is None:
+                if tg_user.language_code:
+                    locale = tg_user.language_code.split('-')[0]
+                else:
+                    locale = 'en'
 
-            user = cls(id=tg_user.id, locale=locale)
-            session.add(user)
+                user = cls(id=tg_user.id, locale=locale)
+                session.add(user)
+                session.commit()
+                user = cls(id=user.id, locale=user.locale)
+                is_new = True
+
+            return is_new, user
+
+    @aiowrap
+    def set_language(self, language: str):
+        with db_session() as session:
+            user = User.get(session, User.id == self.id)
+            user.locale = language
             session.commit()
-            is_new = True
-
-        return is_new, user
-
-    async def set_language(self, language: str):
-        self.locale = language
-        session.commit()
 
 
 WORDS = [

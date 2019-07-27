@@ -1,8 +1,8 @@
-__all__ = [
-    'commands',
-    'errors',
-    'inlines',
-    'messages',
-    'posts',
-    'queries',
-]
+from . import (
+    commands,
+    errors,
+    inlines,
+    messages,
+    posts,
+    queries,
+)

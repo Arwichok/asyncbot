@@ -1,17 +1,10 @@
+import sys
+
 from aiogram import Dispatcher
 
-from bot.misc import (
-    executor,
-    scheduler,
-)
-from bot.config import (
-    WEBHOOK_URL,
-    USE_WEBHOOK,
-    WEBHOOK_SERVER,
-)
-from bot import db, filters
-from bot.middlewares import *
-from bot.handlers import *
+from bot import db, filters, handlers, middlewares
+from bot.config import USE_WEBHOOK, WEBHOOK_SERVER, WEBHOOK_URL
+from bot.misc import executor, scheduler
 
 
 async def on_startup(dp: Dispatcher):
@@ -46,6 +39,7 @@ def main():
     else:
         executor.start_polling()
 
-
-if __name__ == '__main__':
+if len(sys.argv) > 1 and sys.argv[1] == 'init':
+    sys.exit(0)
+elif __name__ == '__main__':
     main()

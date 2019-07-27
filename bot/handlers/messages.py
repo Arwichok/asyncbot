@@ -4,7 +4,6 @@ from aiogram import types
 
 from bot.misc import dp
 
-
 log = logging.getLogger(__name__)
 
 

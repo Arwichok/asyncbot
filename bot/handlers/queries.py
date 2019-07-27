@@ -1,21 +1,13 @@
 import logging
 
 from aiogram import types
-from aiogram.utils.markdown import (
-    hcode,
-    hbold,
-)
+from aiogram.utils.markdown import hbold, hcode
 
+import bot.keyboards as kb
+from bot.middlewares.i18n import _
 from bot.misc import dp
 from bot.models import User, get_words
-from bot.middlewares.i18n import _
-import bot.keyboards as kb
-from bot.utils import (
-    settings_cd,
-    lang_cd,
-    page_cd,
-)
-
+from bot.utils import lang_cd, page_cd, settings_cd
 
 log = logging.getLogger(__name__)
 

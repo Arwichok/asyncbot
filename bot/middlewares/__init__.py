@@ -1,3 +1,1 @@
-__all__ = [
-    'i18n',
-]
+from . import i18n

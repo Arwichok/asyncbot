@@ -1,15 +1,8 @@
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from babel import Locale
-from aiogram.types import (
-    InlineKeyboardMarkup,
-    InlineKeyboardButton,
-)
 
 from bot.middlewares.i18n import _
-from bot.utils import (
-    settings_cd,
-    lang_cd,
-    page_cd,
-)
+from bot.utils import lang_cd, page_cd, settings_cd
 
 
 def settings(locale: str=None) -> InlineKeyboardMarkup:
