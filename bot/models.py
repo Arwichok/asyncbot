@@ -12,7 +12,7 @@ log = logging.getLogger(__name__)
 class User(Base):
     __tablename__ = 'users'
     id = sa.Column(sa.Integer, unique=True, nullable=False, primary_key=True)
-    locale = sa.Column(sa.String(length=2))
+    locale = sa.Column(sa.String(length=2), default=None)
 
     @classmethod
     @aiowrap
@@ -21,15 +21,10 @@ class User(Base):
             user = cls.get(session, cls.id == tg_user.id)
             is_new = False
             if user is None:
-                if tg_user.language_code:
-                    locale = tg_user.language_code.split('-')[0]
-                else:
-                    locale = 'en'
-
-                user = cls(id=tg_user.id, locale=locale)
+                user = cls(id=tg_user.id)
                 session.add(user)
                 session.commit()
-                user = cls(id=user.id, locale=user.locale)
+                user = cls(id=user.id)
                 is_new = True
 
             return is_new, user

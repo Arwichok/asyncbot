@@ -31,6 +31,7 @@ async def choose_lang(cq: types.CallbackQuery,
                       user: User):
     await cq.answer()
     lang = callback_data['lang']
+    lang = None if lang == '0' else lang
     await user.set_language(lang)
     await cq.message.edit_text(
         _("Settings", locale=lang),

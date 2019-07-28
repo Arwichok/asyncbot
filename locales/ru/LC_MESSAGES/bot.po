@@ -57,5 +57,5 @@ msgstr "Отменено."
 
 #: bot/handlers/queries.py:21
 msgid "Choose language"
-msgstr "Выберете язык"
+msgstr "Выберите язык"
 
