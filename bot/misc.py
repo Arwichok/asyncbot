@@ -12,8 +12,8 @@ from bot.config import BOT_TOKEN, LOGFILE, SKIP_UPDATES
 logging.basicConfig(level=logging.INFO, filename=LOGFILE)
 storage = MemoryStorage()
 loop = asyncio.get_event_loop()
-scheduler = AsyncIOScheduler()
+aiosched = AsyncIOScheduler()
 
 bot = Bot(token=BOT_TOKEN, parse_mode=ParseMode.HTML)
-dp = Dispatcher(bot, storage=storage, loop=loop)
+dp = Dispatcher(bot, storage=storage)
 executor = Executor(dp, skip_updates=SKIP_UPDATES)

@@ -5,4 +5,5 @@ from . import (
     messages,
     posts,
     queries,
+    schedules,
 )
