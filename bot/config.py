@@ -10,6 +10,7 @@ OWNER_ID = 0
 SKIP_UPDATES = True
 BOT_TOKEN = '...'
 LOGFILE = ''
+PROXY_URL = '' # http or socks5://user:pass@host:port
 
 # Webhook
 APP_HOST = 'localhost'
