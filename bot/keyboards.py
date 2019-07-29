@@ -13,6 +13,9 @@ def settings(locale: str=None) -> InlineKeyboardMarkup:
     kb.add(InlineKeyboardButton(
         _('Pagination', locale=locale),
         callback_data=page_cd.new('0')))
+    kb.add(InlineKeyboardButton(
+        _('Admin panel', locale=locale),
+        callback_data=settings_cd.new('admin')))
     return kb
 
 
@@ -38,3 +41,10 @@ def pagination(page: int=0, last: int=0) -> InlineKeyboardMarkup:
     f = InlineKeyboardButton('»', callback_data=page_cd.new(str(forward)))
     s = InlineKeyboardButton('⚙', callback_data=settings_cd.new('set'))
     return InlineKeyboardMarkup().add(b, s, f)
+
+
+def admin() -> InlineKeyboardMarkup:
+    kb = InlineKeyboardMarkup()
+    kb.add(InlineKeyboardButton(
+        _('Settings'), callback_data=settings_cd.new('set')))
+    return kb

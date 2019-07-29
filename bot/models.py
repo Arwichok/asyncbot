@@ -36,6 +36,12 @@ class User(Base):
             user.locale = language
             session.commit()
 
+    @classmethod
+    @aiowrap
+    def count(cls):
+        with db_session() as session:
+            return session.query(sa.func.count(cls.id)).scalar()
+
 
 WORDS = [
     'acoustics',

@@ -25,6 +25,14 @@ async def show_lang(cq: types.CallbackQuery, locale: str):
         reply_markup=kb.lang(locale))
 
 
+@dp.callback_query_handler(settings_cd.filter(set='admin'))
+async def show_admin_panel(cq: types.CallbackQuery):
+    users_count = await User.count()
+    await cq.message.edit_text(
+        hbold(_('Admin panel')) + _('\nUsers count: {uc}').format(uc=users_count),
+        reply_markup=kb.admin())
+
+
 @dp.callback_query_handler(lang_cd.filter())
 async def choose_lang(cq: types.CallbackQuery,
                       callback_data: dict,
@@ -33,6 +41,8 @@ async def choose_lang(cq: types.CallbackQuery,
     lang = callback_data['lang']
     lang = None if lang == '0' else lang
     await user.set_language(lang)
+    if lang is None:
+        lang = await _.get_user_locale('', (cq, {}))
     await cq.message.edit_text(
         _("Settings", locale=lang),
         reply_markup=kb.settings(locale=lang))
