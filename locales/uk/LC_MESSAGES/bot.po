@@ -52,8 +52,8 @@ msgstr ""
 "ID чату: {cid}"
 
 #: bot/handlers/commands.py:50
-msgid "Canceled."
-msgstr "Відмінено."
+msgid "Canceled"
+msgstr "Відмінено"
 
 #: bot/handlers/queries.py:21
 msgid "Choose language"

@@ -44,4 +44,4 @@ async def getid(msg: types.Message):
 @dp.message_handler(commands=['cancel'], state='*')
 async def cancel(msg: types.Message, state: FSMContext):
     await state.finish()
-    await msg.answer(_("Canceled."), reply_markup=types.ReplyKeyboardRemove())
+    await msg.answer(_("Canceled"), reply_markup=types.ReplyKeyboardRemove())
