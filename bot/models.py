@@ -5,6 +5,7 @@ from aiogram import types
 
 from bot.db import Base, db_session, sa
 from bot.utils import aiowrap
+from bot.config import OWNER_ID
 
 log = logging.getLogger(__name__)
 
@@ -70,3 +71,11 @@ def get_words(page=0, count=5):
     words = WORDS[start:end]
     last_page = math.floor(len(WORDS) / count)
     return (words, last_page)
+
+
+def is_owner() -> bool:
+    tg_user = types.User.get_current()
+    return tg_user and tg_user.id == OWNER_ID
+
+# TODO
+# add is_admin() for knowing who can edit bot

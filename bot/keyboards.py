@@ -1,8 +1,9 @@
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, User
 from babel import Locale
 
 from bot.middlewares.i18n import _
 from bot.utils import lang_cd, page_cd, settings_cd
+from bot.models import is_owner
 
 
 def settings(locale: str=None) -> InlineKeyboardMarkup:
@@ -13,9 +14,10 @@ def settings(locale: str=None) -> InlineKeyboardMarkup:
     kb.add(InlineKeyboardButton(
         _('Pagination', locale=locale),
         callback_data=page_cd.new('0')))
-    kb.add(InlineKeyboardButton(
-        _('Admin panel', locale=locale),
-        callback_data=settings_cd.new('admin')))
+    if is_owner():
+        kb.add(InlineKeyboardButton(
+            _('Admin panel', locale=locale),
+            callback_data=settings_cd.new('admin')))
     return kb
 
 
