@@ -3,14 +3,13 @@ import sys
 
 import fastconf
 
-AUTHOR = 'Author'
-OWNER_ID = 0
 
 # Bot
 SKIP_UPDATES = True
-BOT_TOKEN = '...'
-LOGFILE = ''
+BOT_TOKEN = '' # 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
+LOGFILE = '' # logs/bot.log
 PROXY_URL = '' # http or socks5://user:pass@host:port
+OWNER_ID = 0 # your id for access to admin panel
 
 # Webhook
 APP_HOST = 'localhost'
@@ -20,10 +19,12 @@ WEBHOOK_HOST = 'example.com'
 WEBHOOK_PATH = '/webhook'
 
 # Database
-DB_URL = "sqlite:///db.sqlite3"   # db.sqlite3
+DB_URL = "sqlite:///db.sqlite3" # db.sqlite3
 
 # Init config
 fastconf.config(__name__)
+if 'init' in sys.argv:
+    sys.exit(0)
 
 ROOT_DIR = os.path.dirname(os.path.abspath(sys.modules['__main__'].__file__))
 

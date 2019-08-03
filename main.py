@@ -29,7 +29,6 @@ def main():
     else:
         executor.start_polling()
 
-if len(sys.argv) > 1 and sys.argv[1] == 'init':
-    sys.exit(0)
-elif __name__ == '__main__':
+
+if __name__ == '__main__':
     main()
