@@ -14,6 +14,7 @@ class User(Base):
     __tablename__ = 'users'
     id = sa.Column(sa.Integer, unique=True, nullable=False, primary_key=True)
     locale = sa.Column(sa.String(length=2), default=None)
+    # TODO add is_admin, is_stoped
 
     @classmethod
     @aiowrap

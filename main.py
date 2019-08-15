@@ -3,7 +3,7 @@ import sys
 from aiogram import Dispatcher
 
 from bot import db, filters, handlers, middlewares
-from bot.config import USE_WEBHOOK, WEBHOOK_SERVER, WEBHOOK_URL
+from bot.config import USE_WEBHOOK, WEBHOOK_SERVER, WEBHOOK_URL, SSL_CERT
 from bot.misc import executor
 
 
@@ -12,7 +12,8 @@ async def on_startup_polling(dp: Dispatcher):
 
 
 async def on_startup_webhook(dp: Dispatcher):
-    await dp.bot.set_webhook(WEBHOOK_URL)
+    cert = open(SSL_CERT, 'rb') if SSL_CERT else None
+    await dp.bot.set_webhook(WEBHOOK_URL, certificate=cert)
 
 
 async def on_shutdown_webhook(dp: Dispatcher):
