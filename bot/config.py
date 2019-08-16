@@ -29,6 +29,9 @@ SSL_KEY = '' # path to ssl private key, hide if use nginx proxy_pass
 # Database
 DB_URL = "sqlite:///db.sqlite3" # db.sqlite3
 
+# Redis
+REDIS_DB = -1
+
 # Init config
 fastconf.config(__name__)
 if 'init' in sys.argv:

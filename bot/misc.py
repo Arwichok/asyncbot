@@ -3,13 +3,15 @@ import logging
 
 from aiogram import Bot, Dispatcher
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
+from aiogram.contrib.fsm_storage.redis import RedisStorage2
 from aiogram.utils.executor import Executor
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-from bot.config import BOT_TOKEN, LOGFILE, PROXY_AUTH, PROXY_URL, SKIP_UPDATES
+from bot.config import (BOT_TOKEN, LOGFILE, PROXY_AUTH, PROXY_URL, REDIS_DB,
+                        SKIP_UPDATES)
 
 logging.basicConfig(level=logging.INFO, filename=LOGFILE)
-storage = MemoryStorage()
+storage = RedisStorage2(REDIS_DB) if REDIS_DB < 0 else MemoryStorage()
 loop = asyncio.get_event_loop()
 aiosched = AsyncIOScheduler()
 
