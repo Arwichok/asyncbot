@@ -7,7 +7,7 @@ Example project structure for aiogram bot
     pip install -r requirements.txt
     make init
 
-### Edit config file
+### Edit config.yml
     TOKEN: <YOUR_TOKEN>
     ...
 
