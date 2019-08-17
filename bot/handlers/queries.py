@@ -7,19 +7,21 @@ import bot.keyboards as kb
 from bot.middlewares.i18n import _
 from bot.misc import dp
 from bot.models import User, get_words
-from bot.utils import lang_cd, page_cd, settings_cd
+from bot.utils import lang_cd, page_cd, settings_cd, word_cd
 
 log = logging.getLogger(__name__)
 
 
 @dp.callback_query_handler(settings_cd.filter(set='set'))
 async def settings(cq: types.CallbackQuery):
+    await cq.answer()
     await cq.message.edit_text(
         _('Settings'), reply_markup=kb.settings())
 
 
 @dp.callback_query_handler(settings_cd.filter(set='lang'))
 async def show_lang(cq: types.CallbackQuery, locale: str):
+    await cq.answer()
     await cq.message.edit_text(
         _('Choose language'),
         reply_markup=kb.lang(locale))
@@ -27,6 +29,7 @@ async def show_lang(cq: types.CallbackQuery, locale: str):
 
 @dp.callback_query_handler(settings_cd.filter(set='admin'))
 async def show_admin_panel(cq: types.CallbackQuery):
+    await cq.answer()
     users_count = await User.count()
     await cq.message.edit_text(
         hbold(_('Admin panel')) + _('\nUsers count: {uc}').format(uc=users_count),
@@ -54,9 +57,14 @@ async def pagination(cq: types.CallbackQuery,
     await cq.answer()
     page = int(callback_data['page'])
     words, last = get_words(page)
-    promo = hbold(_("Page {page}/{count}:\n")).format(
-        page=page + 1,
-        count=last + 1)
-    data = hcode('\n'.join(words))
     await cq.message.edit_text(
-        promo + data, reply_markup=kb.pagination(page, last))
+        f"Inline Pagination | {page}", 
+        reply_markup=kb.page(page, last, words)
+    )
+
+
+@dp.callback_query_handler(word_cd.filter())
+async def word(cq: types.CallbackQuery,
+               callback_data: dict):
+    word = callback_data['word']
+    await cq.answer(word)
