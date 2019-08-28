@@ -55,8 +55,11 @@ async def choose_lang(cq: types.CallbackQuery,
 async def pagination(cq: types.CallbackQuery,
                      callback_data: dict):
     await cq.answer()
-    page = int(callback_data['page'])
-    words, last = get_words(page)
+    data = callback_data['page']
+    if not data.isdigit():
+        return
+    page = int(data)
+    words, last = get_words(page, count=2)
     await cq.message.edit_text(
         f"Inline Pagination | {page}", 
         reply_markup=kb.page(page, last, words)
