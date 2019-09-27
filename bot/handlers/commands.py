@@ -1,12 +1,10 @@
-from aiogram.dispatcher import FSMContext
 from aiogram import types
-from aiogram.utils.markdown import (
-    hcode
-)
+from aiogram.dispatcher import FSMContext
+from aiogram.utils.markdown import hcode
 
-from bot.misc import dp
-from bot.middlewares import _
 import bot.keyboards as kb
+from bot.middlewares.i18n import _
+from bot.misc import dp
 
 
 @dp.message_handler(text_startswith='/start ')
@@ -46,4 +44,4 @@ async def getid(msg: types.Message):
 @dp.message_handler(commands=['cancel'], state='*')
 async def cancel(msg: types.Message, state: FSMContext):
     await state.finish()
-    await msg.answer(_("Canceled."), reply_markup=types.ReplyKeyboardRemove())
+    await msg.answer(_("Canceled"), reply_markup=types.ReplyKeyboardRemove())

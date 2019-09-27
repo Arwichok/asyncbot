@@ -1,3 +1,7 @@
+init:
+	python3 main.py init
+	make compiletext
+
 gettext:
 	pybabel extract bot/ -o locales/bot.pot
 

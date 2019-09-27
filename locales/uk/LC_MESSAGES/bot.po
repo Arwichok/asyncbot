@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-07-18 12:22+0300\n"
+"POT-Creation-Date: 2019-07-29 05:15+0300\n"
 "PO-Revision-Date: 2019-07-18 12:23+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uk\n"
@@ -19,31 +19,41 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: bot/keyboards.py:17
+#: bot/keyboards.py:11
 msgid "Language"
 msgstr "Мова"
 
-#: bot/handlers/commands.py:15
+#: bot/keyboards.py:14
+msgid "Pagination"
+msgstr "Пагінація"
+
+#: bot/handlers/queries.py:32 bot/keyboards.py:17
+msgid "Admin panel"
+msgstr "Адмінка"
+
+#: bot/handlers/commands.py:24 bot/handlers/queries.py:18
+#: bot/handlers/queries.py:45 bot/keyboards.py:49
+msgid "Settings"
+msgstr "Налаштування"
+
+#: bot/handlers/commands.py:13
 msgid "Deep link {}"
 msgstr ""
+
 
 #: bot/handlers/commands.py:20
 msgid "Hello! I am asyncbot."
 msgstr "Привіт! Я asyncbot."
 
-#: bot/handlers/commands.py:26 bot/handlers/queries.py:33
-msgid "Settings"
-msgstr "Налаштування"
-
-#: bot/handlers/commands.py:32
+#: bot/handlers/commands.py:29
 msgid "Help"
 msgstr "Допомога"
 
-#: bot/handlers/commands.py:37
+#: bot/handlers/commands.py:34
 msgid "Privacy"
 msgstr "Приватність"
 
-#: bot/handlers/commands.py:42
+#: bot/handlers/commands.py:39
 msgid ""
 "User id: {uid}\n"
 "Chat id: {cid}"
@@ -51,11 +61,18 @@ msgstr ""
 "ID користувача: {uid}\n"
 "ID чату: {cid}"
 
-#: bot/handlers/commands.py:50
-msgid "Canceled."
-msgstr "Відмінено."
+#: bot/handlers/commands.py:47
+msgid "Canceled"
+msgstr "Відмінено"
 
-#: bot/handlers/queries.py:21
+#: bot/handlers/queries.py:24
 msgid "Choose language"
 msgstr "Виберіть мову"
 
+#: bot/handlers/queries.py:32
+msgid ""
+"\n"
+"Users count: {uc}"
+msgstr ""
+"\n"
+"Користувачів"

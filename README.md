@@ -1,17 +1,15 @@
 # Asyncbot
 
-Project structure for aiogram bot
+Example project structure for aiogram bot
 
 
 ### Before run
     pip install -r requirements.txt
-    python main.py   # generate config file
+    make init
 
-#### Edit config file
-
-```
+### Edit config.yml
     TOKEN: <YOUR_TOKEN>
-``` 
+    ...
 
 ### Run bot
     python main.py
