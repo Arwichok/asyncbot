@@ -41,8 +41,8 @@ msgid "Deep link {}"
 msgstr ""
 
 #: bot/handlers/commands.py:18
-msgid "Hello! I asyncbot."
-msgstr "Привет! Я asyncbot."
+msgid "Hello! I'm Asyncbot."
+msgstr "Привет! Я Asyncbot."
 
 #: bot/handlers/commands.py:29
 msgid "Help"
