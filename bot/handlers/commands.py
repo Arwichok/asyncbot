@@ -17,7 +17,7 @@ async def deep_link(msg: types.Message):
 async def start(msg: types.Message):
     await msg.answer(_("Hello! I'm Asyncbot."))
 
-
+    
 @dp.message_handler(commands=['settings'])
 async def settings(msg: types.Message):
     await msg.answer(

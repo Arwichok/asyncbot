@@ -26,6 +26,9 @@ msgstr ""
 msgid "Pagination"
 msgstr ""
 
+#: bot/handlers/commands.py:20
+msgid "Hello! I am asyncbot."
+
 #: bot/handlers/queries.py:32 bot/keyboards.py:17
 msgid "Admin panel"
 msgstr ""
