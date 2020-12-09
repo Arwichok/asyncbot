@@ -1,4 +1,4 @@
-# Asyncbot
+# Asyncbot `DEPRECATED`
 
 Example project structure for aiogram bot
 
